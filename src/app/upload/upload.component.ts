@@ -7,9 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./upload.component.scss'],
 })
 export class UploadComponent {
-  fileToUpload: File = null;
-
+  // input candidates
+  label = 'Upload file';
   endpoint = 'http://127.0.0.1:3000/upload';
+  accept = 'image/*'; // accept="file_extension|audio/*|video/*|image/*|media_type"
+  upLoading = false;
+
+  fileToUpload: File = null;
 
   constructor(private httpClient: HttpClient) {}
 
@@ -18,11 +22,17 @@ export class UploadComponent {
   }
 
   uploadFileToServer() {
+    if (this.upLoading) {
+      return;
+    }
+    this.upLoading = true;
+
     const formData: FormData = new FormData();
     formData.append('file', this.fileToUpload, this.fileToUpload.name);
 
     this.httpClient.post(this.endpoint, formData).subscribe((res) => {
       console.log('res:', res);
     });
+    this.upLoading = false;
   }
 }

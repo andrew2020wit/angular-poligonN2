@@ -1,11 +1,27 @@
-<div class="form-group">
-  <label for="file">Choose File</label>
-
+<div>
+  <button mat-button color="primary" (click)="fileInput.click()">
+    {{ label }}
+  </button>
+  <button
+    mat-button
+    color="primary"
+    (click)="uploadFileToServer()"
+    [disabled]="!fileToUpload"
+  >
+    Send file
+  </button>
+  <br />
+  <span>
+    file: <strong>{{ fileToUpload?.name }}</strong>
+  </span>
+  <br />
+  <span *ngIf="upLoading" style="color: red">upLoading...</span>
   <input
+    #fileInput
+    hidden
     type="file"
     id="file"
+    [accept]="accept"
     (change)="handleFileInput($event.target.files)"
   />
-
-  <button (click)="uploadFileToServer()">send</button>
 </div>
