@@ -11,9 +11,10 @@
     Send file
   </button>
   <br />
-  <span>
+  <span *ngIf="fileToUpload">
     file: <strong>{{ fileToUpload?.name }}</strong>
   </span>
+  <span *ngIf="upLoadedMes">{{ upLoadedMes }}</span>
   <br />
   <span *ngIf="upLoading" style="color: red">upLoading...</span>
   <input

@@ -12,6 +12,7 @@ export class UploadComponent {
   endpoint = 'http://127.0.0.1:3000/upload';
   accept = 'image/*'; // accept="file_extension|audio/*|video/*|image/*|media_type"
   upLoading = false;
+  upLoadedMes = '';
 
   fileToUpload: File = null;
 
@@ -32,7 +33,9 @@ export class UploadComponent {
 
     this.httpClient.post(this.endpoint, formData).subscribe((res) => {
       console.log('res:', res);
+      this.upLoadedMes = 'Successfully uploaded!';
     });
     this.upLoading = false;
+    this.fileToUpload = null;
   }
 }
