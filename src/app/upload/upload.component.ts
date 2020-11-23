@@ -11,9 +11,9 @@ export class UploadComponent {
   label = 'Upload file';
   endpoint = 'http://127.0.0.1:3000/upload';
   accept = 'image/*'; // accept="file_extension|audio/*|video/*|image/*|media_type"
+
   upLoading = false;
   upLoadedMes = '';
-
   fileToUpload: File = null;
 
   constructor(private httpClient: HttpClient) {}

@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { NativeDinamicFormModule } from './native-dinamic-form/native-dinamic-form.module';
 import { ShareModule } from './share/share.module';
 import { UploadModule } from './upload/upload.module';
 
@@ -11,6 +12,7 @@ import { UploadModule } from './upload/upload.module';
   declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
+    NativeDinamicFormModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ShareModule,
